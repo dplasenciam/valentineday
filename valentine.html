@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine's Request</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin: 50px;
+      }
+      #main-img {
+        width: 200px;
+        height: auto;
+        margin: 20px;
+      }
+      .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
+      .yes-btn {
+        background-color: #4caf50;
+        color: white;
+      }
+      .no-btn {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Would you be my Valentine?</h2>
+    <img id="main-img" src="https://via.placeholder.com/200" alt="Cute image" />
+    <br />
+    <button class="btn yes-btn" onclick="sayYes()">Yes</button>
+    <button class="btn no-btn" onclick="sayNo()">No</button>
+
+    <script>
+      let noClickCount = 0;
+      const noTexts = ["R u sure?", "Sureeee??", "Come onnn", "Come on baby"];
+      function sayYes() {
+        document.querySelector("h2").innerText = "Yaaay! I love you!";
+        document.getElementById("main-img").src =
+          "https://via.placeholder.com/200?text=Happy+Valentine's"; // Change to a happy image
+        document.querySelector(".yes-btn").style.display = "none";
+        document.querySelector(".no-btn").style.display = "none";
+      }
+      function sayNo() {
+        noClickCount++;
+        if (noClickCount >= 5) {
+          noClickCount = 1; // Reset loop to cycle again
+        }
+        document.getElementById("main-img").src =
+          "https://via.placeholder.com/200?text=Sad"; // Change to a sad image
+        document.querySelector(".no-btn").innerText =
+          noTexts[(noClickCount - 1) % noTexts.length];
+      }
+    </script>
+  </body>
+</html>
