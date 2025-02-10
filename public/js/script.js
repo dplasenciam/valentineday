@@ -84,7 +84,7 @@ no_button.addEventListener("click", () => {
   }*/
 
   if (clicks >= 0) {
-    banner.src = "public/images/t" + clicks + ".png";
+    banner.src = "public/images/t" + clicks + ".PNG";
   }
 
   clicks++;
